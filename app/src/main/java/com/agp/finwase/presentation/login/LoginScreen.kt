@@ -26,7 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.agp.finwase.R
@@ -37,7 +37,7 @@ import com.agp.finwase.ui.theme.unselectedField
 import com.google.firebase.auth.FirebaseAuth
 
 @Composable
-fun LoginScreen(auth: FirebaseAuth) {
+fun LoginScreen(auth: FirebaseAuth, navigationToHome: () -> Unit = {}) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     Column(
@@ -55,6 +55,14 @@ fun LoginScreen(auth: FirebaseAuth) {
                 .size(24.dp)
         )
         Spacer(modifier = Modifier.weight(1f))
+        Text(
+            "Inicio de sesion",
+            color = text,
+            fontSize = 40.sp,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth()
+        )
         Box(
             modifier = Modifier.fillMaxWidth(),
             contentAlignment = Alignment.Center
@@ -108,6 +116,7 @@ fun LoginScreen(auth: FirebaseAuth) {
                     auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Log.i("Inicio de sesion", "Entro correctamente")
+                            navigationToHome()
                         } else {
                             Log.i("Inicio de sesion", "No entro de manera correcta")
                         }

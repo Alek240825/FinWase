@@ -26,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.agp.finwase.R
@@ -36,7 +37,7 @@ import com.agp.finwase.ui.theme.unselectedField
 import com.google.firebase.auth.FirebaseAuth
 
 @Composable
-fun RegisterScreen(auth: FirebaseAuth) {
+fun RegisterScreen(auth: FirebaseAuth, navigationToLogin: () -> Unit = {}) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     Column(
@@ -54,6 +55,14 @@ fun RegisterScreen(auth: FirebaseAuth) {
                 .size(24.dp)
         )
         Spacer(modifier = Modifier.weight(1f))
+        Text(
+            "Registro",
+            color = text,
+            fontSize = 40.sp,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth()
+        )
         Box(
             modifier = Modifier.fillMaxWidth(),
             contentAlignment = Alignment.Center
@@ -107,7 +116,7 @@ fun RegisterScreen(auth: FirebaseAuth) {
                     auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                         if (it.isSuccessful) {
                             Log.i("Registro", "Se registro correctamente")
-                            // Sign in success, update UI with the signed-in user's information
+                            navigationToLogin()
                         } else {
                             Log.i("Registro", "No se registro corrctamente", it.exception)
                             // If sign in fails, display a message to the user.

@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.agp.finwase.presentation.home.HomeScreen
 import com.agp.finwase.presentation.initial.InitialScreen
 import com.agp.finwase.presentation.login.LoginScreen
 import com.agp.finwase.presentation.register.RegisterScreen
@@ -19,10 +20,18 @@ fun NavigationWrapper(navHostController: NavHostController, auth: FirebaseAuth) 
             )
         }
         composable("Login") {
-            LoginScreen(auth)
+            LoginScreen(auth,
+                navigationToHome = { navHostController.navigate("Home") },
+             )
         }
         composable("Register") {
-            RegisterScreen(auth)
+            RegisterScreen(auth,
+                navigationToLogin = { navHostController.navigate("Login") }
+            )
+
+        }
+        composable("Home") {
+            HomeScreen()
         }
     }
 }
