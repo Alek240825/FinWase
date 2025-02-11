@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "71824287128",
+    "project_id": "finwase",
+    "storage_bucket": "finwase.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71824287128:android:606bbd7c5bcd3b8eeff7ed",
+        "android_client_info": {
+          "package_name": "com.agp.FinWase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71824287128-mosmso9vpflht0scbi0a77oes24nurms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1-73vQMM5cnLrLWJgU9jtiaPSii_jeeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71824287128-mosmso9vpflht0scbi0a77oes24nurms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71824287128:android:781f80a74a6841cfeff7ed",
+        "android_client_info": {
+          "package_name": "com.agp.finwase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71824287128-mosmso9vpflht0scbi0a77oes24nurms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1-73vQMM5cnLrLWJgU9jtiaPSii_jeeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71824287128-mosmso9vpflht0scbi0a77oes24nurms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
